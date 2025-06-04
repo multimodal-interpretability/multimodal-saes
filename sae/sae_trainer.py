@@ -43,7 +43,7 @@ ds = json.load(open("ShareGPT/sharegpt.json"))
 
 embedding_mtx=models[0].language_model.model.embed_tokens
 torch.set_grad_enabled(True)
-# PROMPT [INST] <image>\nWhat is shown in this image? [/INST]
+# PROMPT [INST] <image>\nWhat is shown in this image? [/INST] tokenized, for removing from embeddings.
 inst_tokens = torch.tensor([[1,733,16289, 28793, 28705]]).to(gpus[0])
 prompt_tokens = torch.tensor([[13,3195,349,4894,297,456,3469,28804,733,28748,16289,28793]]).to(gpus[0]) 
 kill_embeddings = [embedding_mtx(inst_tokens)[0].to(training_gpu).sum(dim=1),embedding_mtx(prompt_tokens)[0].sum(dim=1).to(training_gpu)]
@@ -304,4 +304,4 @@ for epoch in epoch_monitor:
         scheduler.step()
 print("Training finished!")
 print("Final Norm Value: " + str(normsum))
-torch.save(sae.state_dict(), path +'sae_final_layer5_16x.pkl')
+torch.save(sae.state_dict(), path +'sae_final_layer_16x.pkl')
