@@ -23,9 +23,7 @@ disjoint, they become increasingly shared in deeper layers.*
 
 requirements.txt should be comprehensive, but the main necessary requirements are:
 
-BauKit (https://github.com/davidbau/baukit)
-PyTorch
-TQDM
+BauKit (https://github.com/davidbau/baukit), PyTorch, and tqdm
 
 ## SAE Training
 
