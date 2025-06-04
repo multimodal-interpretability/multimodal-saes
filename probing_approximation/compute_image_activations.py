@@ -40,7 +40,7 @@ classes = open('imagenet_classes.txt','r').read().splitlines()
 
 
 
-base_imagenet = '/data/vision/torralba/datasets/imagenet_pytorch_new'
+base_imagenet = 'imagenet_pytorch_new'
 labels_path = f'{base_imagenet}/imagenet_class_index.json'
 with open(labels_path, 'r') as f:
     imagenet_labels = json.load(f)
