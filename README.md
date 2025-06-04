@@ -1,5 +1,5 @@
 # Line of Sight: On Linear Representations in VLLMs
-
+![teaser](https://github.com/bugbamboo/multimodal-saes/blob/main/teaser_figure.png?raw=true)
 Achyuta Rajaram*, Sarah Schwettmann, Jacob Andreas, Arthur Conmy
 
 *Indicates Primary Author, Direct Correspondence to achyuta@mit.edu
@@ -27,8 +27,13 @@ BauKit (https://github.com/davidbau/baukit), PyTorch, and tqdm
 
 ## SAE Training
 
-A single-file script for training SAEs for LlaVa-Next on an 8-gpu host node can be found in \sae\sae-trainer.py, alongside several evaluation scripts. Remember to download the ShareGPT4V dataset: https://sharegpt4v.github.io/.
+A single-file script for training SAEs for LlaVa-Next on an 8-gpu host node can be found in /sae/sae-trainer.py, alongside several evaluation scripts. Remember to download the ShareGPT4V dataset: https://sharegpt4v.github.io/.
 
 ## Steering Interventions
 
 A hackable single-file script for performing interventions on huggingface models with KV caching is under \steering\steering_rollouts.py . Be sure to enable KV caching - this project generated nearly a billion tokens!
+
+
+## Models & Data
+
+The SAE weights for several layers are stored under sae/weights/SAE. training data is the ShareGPT4V dataset, as previously mentioned. The raw results of the Mehcanical Turk Experiments are under steering/.
