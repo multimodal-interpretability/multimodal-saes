@@ -1,5 +1,6 @@
 # Line of Sight: On Linear Representations in VLLMs
-![teaser](https://github.com/bugbamboo/multimodal-saes/blob/main/teaser_figure.png?raw=true)
+![teaser](https://github.com/multimodal-saes/blob/main/teaser_figure.png?raw=true)
+
 Achyuta Rajaram*, Sarah Schwettmann, Jacob Andreas, Arthur Conmy
 
 *Indicates Primary Author, Direct Correspondence to achyuta@mit.edu
