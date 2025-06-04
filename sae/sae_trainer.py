@@ -1,5 +1,5 @@
 """
-script to train embedding-only SAEs. Note that it stores all data in vram, as well as loads some questionable models
+script to train SAEs. Note that it stores all data in vram, as well as loads some questionable models
 
 """
 from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
