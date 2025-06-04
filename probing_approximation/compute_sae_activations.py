@@ -60,8 +60,8 @@ class SAE(nn.Module):
 sae = SAE()
 sae = nn.DataParallel(sae, device_ids=[gpu_index])
 sae = sae.cuda(device=gpu_index)
-dirr = os.listdir(f"/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow//SAE_imagetext_layer{layer}_models_longrun/")[0]
-sae.load_state_dict(torch.load(f"/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow//SAE_imagetext_layer{layer}_models_longrun/"+dirr))
+dirr = os.listdir(f"/SAE_imagetext_layer{layer}_models_longrun/")[0]
+sae.load_state_dict(torch.load(f"/SAE_imagetext_layer{layer}_models_longrun/"+dirr))
 print("starting?")
 
 for i in selected_range:
