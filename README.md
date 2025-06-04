@@ -19,13 +19,18 @@ dictionary of text and image features. We find that al-
 though model representations across modalities are quite
 disjoint, they become increasingly shared in deeper layers.*
 
+## Dependencies
 
+requirements.txt should be comprehensive, but the main necessary requirements are:
 
+BauKit (https://github.com/davidbau/baukit)
+PyTorch
+TQDM
 
 ## SAE Training
 
-A single-file script for training SAEs for LlaVa-Next on an 8 host node can be found in \sae, alongside several evaluation scripts. Remember to download the ShareGPT4V dataset: https://sharegpt4v.github.io/.
+A single-file script for training SAEs for LlaVa-Next on an 8-gpu host node can be found in \sae\sae-trainer.py, alongside several evaluation scripts. Remember to download the ShareGPT4V dataset: https://sharegpt4v.github.io/.
 
 ## Steering Interventions
 
-A single-file script
+A hackable single-file script for performing interventions on huggingface models with KV caching is under \steering\steering_rollouts.py . Be sure to enable KV caching - this project generated nearly a billion tokens!
