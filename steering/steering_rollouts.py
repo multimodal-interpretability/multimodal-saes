@@ -50,7 +50,7 @@ layer=20
 torch.set_grad_enabled(False)
 
 training_gpu = "cuda:"+str(gpu_index)
-base_imagenet = '/data/vision/torralba/datasets/imagenet_pytorch_new'
+base_imagenet = 'datasets/imagenet_pytorch_new'
 labels_path = f'{base_imagenet}/imagenet_class_index.json'
 with open(labels_path, 'r') as f:
     imagenet_labels = json.load(f)
@@ -122,16 +122,16 @@ cls2 = []
 for cls in classes[:50]:
     cls1.append(cls.split("_to_")[0])
     cls2.append(cls.split("_to_")[1])
-    loaded.append(torch.load(f'steering_vectors/{cls}/yossi_layer{layer}.pt'))#get_vector(cls1[-1],cls2[-1]))
+    loaded.append(torch.load(f'steering_vectors/{cls}/rollouts_layer{layer}.pt'))#get_vector(cls1[-1],cls2[-1]))
     #loaded.append(torch.nn.functional.normalize(torch.randn(4096),dim=0))
 
 
 
 for cls_index in section:
-    os.makedirs(f'rollouts/yossi/{classes[cls_index]}', exist_ok=True)
+    os.makedirs(f'rollouts/{classes[cls_index]}', exist_ok=True)
     cl_id = int(imagenet_labels[imagenet_labels['label'] == cls1[cls_index]].index[0])
     cl_path = imagenet_labels.iloc[cl_id].id
-    cl_dir = f'/data/vision/torralba/datasets/imagenet_pytorch_new/val/{cl_path}'
+    cl_dir = f'datasets/imagenet_pytorch_new/val/{cl_path}'
     paths = os.listdir(cl_dir)
     vec = loaded[cls_index].to(training_gpu)
     
@@ -147,7 +147,7 @@ for cls_index in section:
                f'[INST] <image>\nIs this image more related to the concept "{cls1[cls_index]}" or the concept "{cls2[cls_index]}"? [/INST] '
           ]
     for k in np.linspace(0,30,20):
-        file = open(f"rollouts/yossi/{classes[cls_index]}/layer_{layer}_k_{k}.txt",'w')
+        file = open(f"rollouts/{classes[cls_index]}/layer_{layer}_k_{k}.txt",'w')
         for path in paths[:5]:
             file.write("################ NEW IMAGE ################\n")
             file.write("IMAGE PATH: " +cl_dir+'/'+path+'\n')
