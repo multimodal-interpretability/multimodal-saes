@@ -27,7 +27,7 @@ import pandas as pd
 import json
 
 random.seed(42)
-base_imagenet = '/data/vision/torralba/datasets/imagenet_pytorch_new'
+base_imagenet = 'datasets/imagenet_pytorch_new'
 labels_path = f'{base_imagenet}/imagenet_class_index.json'
 with open(labels_path, 'r') as f:
     imagenet_labels = json.load(f)
@@ -49,7 +49,7 @@ for i in range(len(gpus)):
 
 
 processor = LlavaNextProcessor.from_pretrained("llava-hf/llava-v1.6-mistral-7b-hf")
-ds = json.load(open("/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/ShareGPT/sharegpt.json"))
+ds = json.load(open("/ShareGPT/sharegpt.json"))
 
 torch.set_grad_enabled(False)
 
@@ -112,7 +112,7 @@ for k in ks:
         cls2 = w[i].split("@")[1]
         cl_id = int(imagenet_labels[imagenet_labels['label'] == cls1].index[0])
         cl_path = imagenet_labels.iloc[cl_id].id
-        cl_dir = f'/data/vision/torralba/datasets/imagenet_pytorch_new/val/{cl_path}'
+        cl_dir = f'datasets/imagenet_pytorch_new/val/{cl_path}'
         paths = os.listdir(cl_dir)
         prompt = f'[INST] <image>\n Reply either "{cls1}" or "{cls2}" in lowercase depending on what is shown in the image. Do not output any other text. [/INST]'
         answer = processor(cls2,return_tensors="pt").input_ids[0][-1].item()
