@@ -2,7 +2,7 @@
 
 Achyuta Rajaram*, Sarah Schwettmann, Jacob Andreas, Arthur Conmy
 
-*Indicates Primary Author, Correspondence to achyuta@mit.edu
+*Indicates Primary Author, Direct Correspondence to achyuta@mit.edu
 
 *Language models can be equipped with multimodal capa-
 bilities by fine-tuning on embeddings of visual inputs. But
@@ -18,3 +18,14 @@ Sparse Autoencoders (SAEs), creating a highly interpretable
 dictionary of text and image features. We find that al-
 though model representations across modalities are quite
 disjoint, they become increasingly shared in deeper layers.*
+
+
+
+
+## SAE Training
+
+A single-file script for training SAEs for LlaVa-Next on an 8 host node can be found in \sae, alongside several evaluation scripts. Remember to download the ShareGPT4V dataset: https://sharegpt4v.github.io/.
+
+## Steering Interventions
+
+A single-file script
