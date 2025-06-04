@@ -27,7 +27,7 @@ random.seed(42)
 def load(item):
     prompt = '[INST] <image>\nWhat is shown in this image? [/INST] ' +item['conversations'][1]['value']
     try:
-        image = Image.open("/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/ShareGPT/"+ item['image']).resize((336,336))
+        image = Image.open("/ShareGPT/"+ item['image']).resize((336,336))
     except:
         return 'failed','failed'
     return (prompt, image)
@@ -48,7 +48,7 @@ for i in range(len(gpus)):
         param.requires_grad = False
 
 processor = LlavaNextProcessor.from_pretrained("llava-hf/llava-v1.6-mistral-7b-hf")
-ds = json.load(open("/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/ShareGPT/sharegpt.json"))
+ds = json.load(open("ShareGPT/sharegpt.json"))
 
 torch.set_grad_enabled(False)
 
