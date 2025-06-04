@@ -37,4 +37,4 @@ A hackable single-file script for performing interventions on huggingface models
 
 ## Models & Data
 
-The SAE weights for several layers are stored under sae/weights/SAE. training data is the ShareGPT4V dataset, as previously mentioned. The raw results of the Mehcanical Turk Experiments are under steering/.
+The SAE weights for several layers are stored under [This HuggingFace Repo](https://huggingface.co/flybamboo/vlm-saes/tree/main). Example code for loading and performing inference is under [/sae/evaluation/eval_sae_damage.py](https://github.com/multimodal-interpretability/multimodal-saes/blob/main/sae/evaluation/eval_sae_damage.py) training data is the ShareGPT4V dataset, as previously mentioned. The raw results of the Mehcanical Turk Experiments are under steering/.
