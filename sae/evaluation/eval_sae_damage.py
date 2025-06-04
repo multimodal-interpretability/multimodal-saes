@@ -37,7 +37,7 @@ def load(item):
 gpus = ["cuda:1","cuda:2","cuda:3","cuda:4","cuda:5","cuda:6"]
 w = open("class_pairs.txt", 'r').read().splitlines() 
 layer = 8
-file = f"/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/SAE_imagetext_layer{layer}_models_longrun/" +os.listdir(f"/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/SAE_imagetext_layer{layer}_models_longrun/")[0]
+file = ""
 class SAE(nn.Module):
     def __init__(self):
         super(SAE, self).__init__()
@@ -91,7 +91,7 @@ for i in range(len(gpus)):
         param.requires_grad = False
 
 processor = LlavaNextProcessor.from_pretrained("llava-hf/llava-v1.6-mistral-7b-hf")
-ds = json.load(open("/data/vision/torralba/selfmanaged/torralba/scratch/schwett/meow/ShareGPT/sharegpt.json"))
+ds = json.load(open("ShareGPT/sharegpt.json"))
 
 
 
